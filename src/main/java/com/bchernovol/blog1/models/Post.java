@@ -64,10 +64,10 @@ public class Post {
 
     }
 
-    public Post(String title,String anons, String full_text) {
+    public Post(String title,String anons, String fullText) {
         this.title = title;
         this.anons = anons;
-        this.fullText = full_text;
+        this.fullText = fullText;
     }
 
 }
