@@ -45,27 +45,29 @@ public class Post {
     }
 
     public String getFull_text() {
-        return full_text;
+        return fullText;
     }
 
     public void setFull_text(String full_text) {
-        this.full_text = full_text;
+        this.fullText = full_text;
     }
 
-    public int getVievs() {
-        return vievs;
+    public int getViews() {
+        return views;
     }
 
-    public void setVievs(int vievs) {
-        this.vievs = vievs;
+    public void setViews(int views) {
+        this.views = views;
     }
+
     public Post(){
 
     }
-    public Post(String title,String anons, String full_text){
-        this.title=title;
-        this.anons=anons;
-        this.full_text=full_text;
+
+    public Post(String title,String anons, String full_text) {
+        this.title = title;
+        this.anons = anons;
+        this.fullText = full_text;
     }
 
 }
