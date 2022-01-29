@@ -2,6 +2,7 @@ package com.bchernovol.blog1.models;
 
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,8 +15,10 @@ public class Post {
     private Long id;
     private String title;
     private String anons;
-    private String full_text;
-    private int vievs;
+    @Column(name = "full_text")
+    private String fullText;
+    @Column(name = "vievs")
+    private int views;
 
     public Long getId() {
         return id;
