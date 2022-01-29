@@ -14,9 +14,9 @@ public class BlogController {
     private PostRepository postRepository;
 
     @GetMapping("/blog")
-    public String BlogMain(Model model){
+    public String BlogMain(Model model) {
         Iterable<Post> posts = postRepository.findAll();
-        model.addAttribute("post",posts);
+        model.addAttribute("post", posts);
         return "blog-main";
     }
 }
