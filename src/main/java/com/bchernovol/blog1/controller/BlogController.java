@@ -20,9 +20,9 @@ public class BlogController {
     private PostRepository postRepository;
 
     @GetMapping("/blog")
-    public String BlogMain(Model model){
+    public String BlogMain(Model model) {
         Iterable<Post> posts = postRepository.findAll();
-        model.addAttribute("post",posts);
+        model.addAttribute("post", posts);
         return "blog-main";
     }
 
@@ -30,8 +30,10 @@ public class BlogController {
     public String BlogAdd(Model model){
         return "blog-add";
     }
+
     @PostMapping("/blog/add")
-    public String BlogPostAdd(@RequestParam String title, @RequestParam String anons, @RequestParam String full_text, Model model){
+    public String BlogPostAdd(@RequestParam String title, @RequestParam String anons,
+                              @RequestParam String full_text, Model model) {
         Post post = new Post(title, anons,full_text);
         postRepository.save(post);
         return "redirect:/blog";
