@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Optional;
 
 
@@ -39,11 +41,10 @@ public class BlogController {
         return "redirect:/blog";
     }
     @GetMapping("/blog/{id}")
-    public String BlogDetails(@PathVariable(value="id") long id, Model model){
+    public String BlogDetails(@PathVariable(value="id") long id, Model model) {
         Optional<Post> post = postRepository.findById(id);
-        ArrayList<Post> res = new ArrayList<>();
-        post.ifPresent(res::add);
-        model.addAttribute("post",post);
+        Iterable<Post> res = post.map(Arrays::asList).orElse(Collections.emptyList());
+        model.addAttribute("post", res);
         return "blog-details";
     }
 

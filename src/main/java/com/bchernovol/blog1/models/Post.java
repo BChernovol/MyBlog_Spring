@@ -44,11 +44,11 @@ public class Post {
         this.anons = anons;
     }
 
-    public String getFull_text() {
+    public String getFullText() {
         return fullText;
     }
 
-    public void setFull_text(String full_text) {
+    public void setFullText(String full_text) {
         this.fullText = full_text;
     }
 
