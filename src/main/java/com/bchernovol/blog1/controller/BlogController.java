@@ -42,6 +42,9 @@ public class BlogController {
     }
     @GetMapping("/blog/{id}")
     public String BlogDetails(@PathVariable(value="id") long id, Model model) {
+        if(!postRepository.existsById(id)){
+            return "redirect:/blog";
+        }
         Optional<Post> post = postRepository.findById(id);
         Iterable<Post> res = post.map(Arrays::asList).orElse(Collections.emptyList());
         model.addAttribute("post", res);
