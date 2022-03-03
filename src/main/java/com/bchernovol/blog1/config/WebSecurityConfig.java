@@ -16,6 +16,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .antMatchers("/blog/add","/blog/{id}/edit","/blog/{id}/remove").authenticated()
                 .antMatchers(HttpMethod.POST).anonymous()
                 .antMatchers(HttpMethod.DELETE).anonymous()
+                .antMatchers( "/favicon.ico").permitAll()
                 .and()
                 .formLogin()
                 .and()
