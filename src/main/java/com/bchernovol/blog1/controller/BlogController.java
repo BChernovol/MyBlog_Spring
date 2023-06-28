@@ -63,7 +63,7 @@ public class BlogController {
     @PostMapping("/blog/{id}/edit")
     public String BlogPostUpdate(@PathVariable(value ="id") long id,@RequestParam String title, @RequestParam String anons,
                               @RequestParam String full_text, Model model) {
-        Post post = postRepository.findById(id).orElseThrow();
+        Post post = postRepository.findById(id).orElseThrow(null);
         post.setTitle(title);
         post.setAnons(anons);
         post.setFullText(full_text);
@@ -72,7 +72,7 @@ public class BlogController {
     }
     @PostMapping("/blog/{id}/remove")
     public String BlogPostDelete(@PathVariable(value ="id") long id, Model model) {
-        Post post = postRepository.findById(id).orElseThrow();
+        Post post = postRepository.findById(id).orElseThrow(null);
        postRepository.delete(post);
         return "redirect:/blog";
     }
